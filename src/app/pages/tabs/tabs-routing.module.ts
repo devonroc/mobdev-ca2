@@ -49,17 +49,33 @@ const routes: Routes = [
                     }
                 ]
             },
-            {
+
+              {
                 path: 'deaths',
                 children: [
                     {
                         path: '',
                         loadChildren: () => import('../deaths/deaths.module').then(m => m.DeathsPageModule)
+                    },
+                    {
+                        path: ':id',
+                        loadChildren: () => import('../character-details/character-details.module').then(m => m.CharacterDetailsPageModule)
+                    }
+                ]
+            },
+
+            {
+                path: 'camera',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../camera/camera.module').then(m => m.CameraPageModule)
                     }
                 ]
             }
         ]
     },
+
 
     {
         path: '',
